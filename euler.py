@@ -36,6 +36,9 @@ def is_even(n):
     if(n % 2 == 0):
         return True
 
+def is_factor(n, k):
+    if(n % k == 0):
+        return True;
 
 #--- print content of list ----------------------------------------------------
 def print_r(obj):
