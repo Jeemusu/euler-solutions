@@ -18,6 +18,25 @@ def is_multiple_of(n, k):
         return True
 
 
+#--- Get fibonacci sequence for values less than n ----------------------------
+def get_fibonacci_lt_n(n):
+    i = 0
+    sequence = [1,2]
+    
+    while sequence[i] < n:
+        sequence.append(sequence[i] + sequence[i+1])
+        i+=1
+
+    return sequence;
+
+
+#--- Return true if n is even  ------------------------------------------------
+def is_even(n):
+
+    if(n % 2 == 0):
+        return True
+
+
 #--- print content of list ----------------------------------------------------
 def print_r(obj):
     """
