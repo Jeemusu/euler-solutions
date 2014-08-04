@@ -13,6 +13,12 @@ def print_problem(questionno):
 
 
 #--- print content of list ----------------------------------------------------
+def is_multiple_of(n, k):
+    if n % k == 0:
+        return True
+
+
+#--- print content of list ----------------------------------------------------
 def print_r(obj):
     """
     Print an array 
