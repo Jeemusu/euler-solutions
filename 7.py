@@ -35,11 +35,9 @@ def get_nth_prime(n):
 
     return primes[n-1]
 
-print get_nth_prime(10001)
-
 print '-----------------------------------------------------------------------'
 print 'Solution:'
 print '-----------------------------------------------------------------------'
-print "Answer: %s " % 1
+print "Answer: %s " % get_nth_prime(10001)
 print "\n"+"Execution time: %s" % (time.time()-start) 
 print '\n'
