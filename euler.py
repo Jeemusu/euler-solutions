@@ -1,3 +1,5 @@
+from operator import mul
+
 #--- print the problem text ---------------------------------------------------
 def print_problem(questionno):
     #import question
@@ -28,6 +30,13 @@ def get_fibonacci_lt_n(n):
         i+=1
 
     return sequence;
+
+
+#--- Return true if n is palendrome  ------------------------------------------
+def is_palindrome(n):
+    n = str(n)
+    if(n == n[::-1]):
+        return True
 
 
 #--- Return true if n is even  ------------------------------------------------
@@ -68,6 +77,11 @@ def prime_sieve(n):
         if sieve[i/2]:
             sieve[i*i/2::i] = [False] * ((n-i*i-1)/(2*i)+1)
     return [2] + [2*i+1 for i in xrange(1,n/2) if sieve[i]]
+
+
+def product(iterable):
+    return reduce(mul, iterable, 1)
+
 
 #--- test if n is prime (upto 1373653)-----------------------------------------
 def _try_composite(a, d, n, s):
