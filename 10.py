@@ -17,7 +17,24 @@ print_problem(questionno)
 # Solution
 #
 
-primes = prime_sieve(10)
+def prime_sieve(limit):
+
+    not_prime = set()
+    primes = []
+
+    for i in xrange(2, limit):
+
+        if i in not_prime:
+            continue
+
+        for f in xrange(i*i, limit, i):
+            not_prime.add(f)
+
+        primes.append(i)
+
+    return primes
+
+primes = prime_sieve(2000000)
 
 
 print '-----------------------------------------------------------------------'
