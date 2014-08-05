@@ -1,5 +1,5 @@
 from operator import mul
-
+import math 
 #--- print the problem text ---------------------------------------------------
 def print_problem(questionno):
     #import question
@@ -18,6 +18,8 @@ def print_problem(questionno):
 def is_multiple_of(n, k):
     if n % k == 0:
         return True
+
+
 
 
 #--- Get fibonacci sequence for values less than n ----------------------------
@@ -70,13 +72,32 @@ def print_r(obj):
         print object
         
 #--- generate prime numbers in range n-----------------------------------------
+"""
 def prime_sieve(n):
 
     sieve = [True] * (n/2)
-    for i in xrange(3,int(n**0.5)+1,2):
+    for i in xrange(3, int(math.sqrt(n)), 2):
         if sieve[i/2]:
             sieve[i*i/2::i] = [False] * ((n-i*i-1)/(2*i)+1)
     return [2] + [2*i+1 for i in xrange(1,n/2) if sieve[i]]
+"""
+
+def prime_sieve(limit):
+
+    not_prime = set()
+    primes = []
+
+    for i in xrange(2, limit):
+
+        if i in not_prime:
+            continue
+
+        for f in xrange(i*i, limit, i):
+            not_prime.add(f)
+
+        primes.append(i)
+
+    return primes
 
 
 def product(iterable):
