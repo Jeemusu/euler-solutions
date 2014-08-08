@@ -15,24 +15,24 @@ print_problem(questionno)
 #
 
 # return True if pandigital string containing numbers 1 - limit
-def is_pandigital(str, limit = 9):
+def is_pandigital(string, limit = 9):
 
-    if ( len(str) != limit ):
+    if ( len(string) != limit ):
         return False
 
-    if( '0' in str ):
+    if( '0' in string ):
         return False
 
-    if(len("".join(set(str))) != limit ):
+    if(len("".join(set(string))) != limit ):
         return False
 
     return True
 
 
-pandigitals = []
+pandigital_products = []
 limit = 9
 
-# make assumptions about the range
+# make assumptions about the range of products and work backwards
 for product in range(4012,9876):
 
     product_str = str(product)
@@ -42,9 +42,9 @@ for product in range(4012,9876):
         continue
 
     # skip products with duplicate digits
-    if( len(product_str) != len("".join(set(product_str))) ):
+    if( len(product_str) != len( ''.join(set(product_str)) ) ):
         continue
-  
+
     # loop though [0 ~ product] to find potential factors
     for i in range(product, 1, -1):
         
@@ -54,11 +54,11 @@ for product in range(4012,9876):
         if( is_factor(product, i) and is_pandigital(str(product) + str(i) + str(product/i)) ):
 
             # number is pandigital so add to list
-            pandigitals.append(product)
+            pandigital_products.append(product)
 
 print '-----------------------------------------------------------------------'
 print 'Solution:'
 print '-----------------------------------------------------------------------'
-print "Answer: %s" % sum(set(pandigitals))
+print "Answer: %s" % sum(set(pandigital_products))
 print "\n"+"Execution time: %s" % (time.time()-start) 
 print '\n'
