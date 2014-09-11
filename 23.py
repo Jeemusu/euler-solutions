@@ -41,8 +41,7 @@ def gen_abundant(limit):
 	return result
 
 limit = 28123
-
-abundants = list(x for x in range(1, 28123) if is_abundant(x))
+abundants = gen_abundant(limit)	
 results = range(limit)
 
 for i in abundants:
