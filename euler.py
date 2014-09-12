@@ -129,3 +129,23 @@ def is_prime(n):
 
 _known_primes = [2, 3]
 _known_primes += [x for x in range(5, 1000, 2) if is_prime(x)]
+
+
+# returns a list of all rotations of a multi-byte number
+def getRotationsOfNum(n):
+    n_str = str(n)
+    length = len(n_str)
+    variants = []
+    variants.append(n_str)
+
+    for i in range(0,length):
+        if(i > 0):
+            n_str = n_str[1:length] + n_str[0]
+            variants.append(n_str)    
+
+    return variants
+
+
+# convert int to base 10 (binary)
+def intToBinary(n):
+    return '{0:b}'.format(int(n))
